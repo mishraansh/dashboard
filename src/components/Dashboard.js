@@ -1,7 +1,7 @@
+
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import "../index.css";
-
 import Funds from "./Funds";
 import Holdings from "./Holdings";
 import Orders from "./Orders";
@@ -9,12 +9,13 @@ import Positions from "./Positions";
 import Summary from "./Summary";
 import WatchList from "./WatchList";
 import Apps from "./Apps";
-
+import { GeneralContextProvider } from "./GeneralContext";
 const Dashboard = () => {
   return (
     <div className="dashboard-container">
-      <WatchList />
-
+      <GeneralContextProvider>
+        <WatchList />
+      </GeneralContextProvider>
       <div className="content">
         <Routes>
           <Route path="/" element={<Summary />} />
